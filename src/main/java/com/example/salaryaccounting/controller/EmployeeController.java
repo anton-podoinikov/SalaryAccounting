@@ -28,7 +28,7 @@ public class EmployeeController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Employee> getEmployeeById(@PathVariable Long id) {
-        Employee employee = (Employee) employeeService.findById(id)
+        Employee employee = employeeService.findById(id)
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Employee not fount with id" + id));
         return ResponseEntity.ok().body(employee);
